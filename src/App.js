@@ -6,6 +6,8 @@ import FeedbackStats from './components/FeedbackStats'
 
 
 
+
+
 function App() {
 
     const [feedback, setFeedback] = useState(FeedbackData)
@@ -19,6 +21,7 @@ function App() {
             <Header text="Color me As You can" />
 
             <div className="container">
+
                 <FeedbackStats feedback={feedback} />
                 <FeedbackList feedback={feedback}
                     handleDelete={deleteFeedback} />

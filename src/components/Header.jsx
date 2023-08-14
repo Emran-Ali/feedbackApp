@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import Button from './Shared/Card'
 
 function Header({ text, bgColor, textColor }) {
 
@@ -8,6 +9,7 @@ function Header({ text, bgColor, textColor }) {
     }
     return (
         <header style={HeaderSyles}>
+
             <div className="container"  >
                 <h1>{text}</h1>
             </div>
