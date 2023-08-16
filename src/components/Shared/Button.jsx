@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function Button({ children, version, type, isDisable }) {
     return (
-        <button type={type} disabled={isDisable} className={`btn-${version}`}>
+        <button type={type} disabled={isDisable} className={`btn btn-${version}`}>
             {children}
         </button>
     )
@@ -22,4 +22,4 @@ Button.protoType = {
     isDisable: PropTypes.bool,
 }
 
-export default Button
+export default Button;

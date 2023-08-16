@@ -3,6 +3,7 @@ import Header from './components/Header'
 import FeedbackList from './components/FeedbackList'
 import FeedbackData from './Data/FeedbackData'
 import FeedbackStats from './components/FeedbackStats'
+import FeedbackForm from './components/FeedbackForm'
 
 
 
@@ -21,7 +22,7 @@ function App() {
             <Header text="Color me As You can" />
 
             <div className="container">
-
+                <FeedbackForm />
                 <FeedbackStats feedback={feedback} />
                 <FeedbackList feedback={feedback}
                     handleDelete={deleteFeedback} />
