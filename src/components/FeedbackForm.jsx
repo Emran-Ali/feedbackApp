@@ -4,8 +4,9 @@ import Button from './Shared/Button'
 import RattingSelect from './RattingSelect'
 
 
-function FeedbackForm() {
+function FeedbackForm({ handleAdd }) {
     const [text, setText] = useState('');
+    const [rating, setRatting] = useState('');
     const [massage, setMassag] = useState('');
     const [btnDisable, setBtnDisable] = useState('True');
 
@@ -14,7 +15,7 @@ function FeedbackForm() {
             setBtnDisable(true);
             setMassag(null);
         }
-        else if (text != null && text.trim('').length <= 10) {
+        else if (text !== '' && text.trim().length < 9) {
             setBtnDisable(true);
             setMassag('text should be greater than 10 charecter');
         }
@@ -24,16 +25,33 @@ function FeedbackForm() {
         }
         setText(e.target.value)
     }
+    const handleSubmit = (e) => {
+        console.log("on Submit");
+        e.preventDefault();
+        console.log(rating);
+        console.log(text.trim().length);
+        if (text.trim().length > 9) {
+            console.log("if");
+
+            const newFeedback = {
+                text,
+                rating,
+            }
+            handleAdd(newFeedback);
+        }
+
+    }
 
     return (
         <Card reverse={false}>
-            <form >
+            <form onSubmit={handleSubmit}>
                 <h2>Write a review here</h2>
-                <RattingSelect></RattingSelect>
+                <RattingSelect select={(rating) => { setRatting(rating) }} />
                 <div className="input-group">
-                    <input onChange={handleTextChangr}
+                    <input
+                        onChange={handleTextChangr}
                         type="text"
-                        placeholder='Write your review here at least 10 word'
+                        placeholder='Write your review'
                         value={text}
                     />
                     <Button type='submit' version='secondary' isDisable={btnDisable} > send</Button>
