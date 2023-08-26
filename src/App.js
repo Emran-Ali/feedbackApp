@@ -8,6 +8,7 @@ import FeedbackData from './Data/FeedbackData'
 import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
 import About from './pages/About'
+import AboutIconLink from './components/AboutIconLink'
 
 
 
@@ -31,15 +32,23 @@ function App() {
         <Router>
             <Header text="Color me As You can" />
             <div className="container">
-                <FeedbackForm handleAdd={addFeedback} />
-                <FeedbackStats feedback={feedback} />
-                <FeedbackList feedback={feedback}
-                    handleDelete={deleteFeedback} />
-
                 <Routes>
+                    <Route exact path='/' element={
+                        <>
+                            <FeedbackForm handleAdd={addFeedback} />
+                            <FeedbackStats feedback={feedback} />
+                            <FeedbackList feedback={feedback}
+                                handleDelete={deleteFeedback} />
+
+                        </>
+                    }
+                    />
                     <Route exact path='/about' Component={About}> </Route>
+                    <Route exact path='/' Component={AboutIconLink}> </Route>
+
                 </Routes>
             </div>
+            <AboutIconLink />
         </ Router >
     )
 }
