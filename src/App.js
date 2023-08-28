@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { FeedbackProvider } from './context/FeedbackContext'
 
 import Header from './components/Header'
 import FeedbackList from './components/FeedbackList'
@@ -29,27 +30,29 @@ function App() {
         }
     }
     return (
-        <Router>
-            <Header text="Color me As You can" />
-            <div className="container">
-                <Routes>
-                    <Route exact path='/' element={
-                        <>
-                            <FeedbackForm handleAdd={addFeedback} />
-                            <FeedbackStats feedback={feedback} />
-                            <FeedbackList feedback={feedback}
-                                handleDelete={deleteFeedback} />
+        <FeedbackProvider>
+            <Router>
+                <Header text="Color me As You can" />
+                <div className="container">
+                    <Routes>
+                        <Route exact path='/' element={
+                            <>
+                                <FeedbackForm handleAdd={addFeedback} />
+                                <FeedbackStats feedback={feedback} />
+                                <FeedbackList
+                                    handleDelete={deleteFeedback} />
 
-                        </>
-                    }
-                    />
-                    <Route exact path='/about' Component={About}> </Route>
-                    <Route exact path='/' Component={AboutIconLink}> </Route>
+                            </>
+                        }
+                        />
+                        <Route exact path='/about' Component={About}> </Route>
+                        <Route exact path='/' Component={AboutIconLink}> </Route>
 
-                </Routes>
-            </div>
-            <AboutIconLink />
-        </ Router >
+                    </Routes>
+                </div>
+                <AboutIconLink />
+            </ Router >
+        </FeedbackProvider>
     )
 }
 
