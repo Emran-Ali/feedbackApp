@@ -6,7 +6,7 @@ function FeedbackStats() {
     let avarage = feedback.reduce((acc, cur) => {
         return acc + cur.rating
     }, 0);
-    console.log(avarage);
+
     avarage /= feedback.length;
 
     return (

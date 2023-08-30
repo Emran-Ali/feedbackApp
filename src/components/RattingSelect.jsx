@@ -1,8 +1,16 @@
 
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
+import FeedbackContext from '../context/FeedbackContext';
 
 export default function RattingSelect({ select }) {
+
     const [selected, setSelected] = useState(9);
+
+    const { feedbackEdit } = useContext(FeedbackContext);
+
+    useEffect(() => {
+        setSelected(feedbackEdit.item.rating);
+    }, [feedbackEdit])
 
     const handleChange = (e) => {
         setSelected(+e.currentTarget.value);
@@ -98,6 +106,16 @@ export default function RattingSelect({ select }) {
                     onChange={handleChange}
                     checked={selected === 9} />
                 <label htmlFor="num9">9</label>
+
+            </li>
+            <li>
+                <input type='radio'
+                    id='num10'
+                    name='rating'
+                    value='10'
+                    onChange={handleChange}
+                    checked={selected === 10} />
+                <label htmlFor="num9">10</label>
 
             </li>
 
