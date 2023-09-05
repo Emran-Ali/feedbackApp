@@ -4,7 +4,7 @@ import FeedbackContext from '../context/FeedbackContext';
 
 export default function RattingSelect({ select }) {
 
-    const [selected, setSelected] = useState(9);
+    const [selected, setSelected] = useState(1);
 
     const { feedbackEdit } = useContext(FeedbackContext);
 

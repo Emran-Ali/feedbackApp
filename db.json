@@ -1,24 +1,24 @@
 {
   "feedback": [
     {
-      "id": 1,
-      "rating": 10,
-      "text": "this is feedback from json"
-    },
-    {
-      "id": 2,
-      "rating": 7,
-      "text": "this is feedback from json"
-    },
-    {
-      "id": 3,
-      "rating": 5,
-      "text": "this is feedback from json"
-    },
-    {
       "rating": "6",
       "text": "this is from postman",
       "id": 4
+    },
+    {
+      "text": "Hi iam added from inpus ",
+      "rating": 7,
+      "id": 5
+    },
+    {
+      "text": "this is from json",
+      "rating": "",
+      "id": 6
+    },
+    {
+      "text": "this is a bad app",
+      "rating": 2,
+      "id": 7
     }
   ]
 }

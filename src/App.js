@@ -11,7 +11,7 @@ function App() {
     return (
         <FeedbackProvider>
             <Router>
-                <Header text="Color me As You can" />
+                <Header text="FeedBack App" />
                 <div className="container">
                     <Routes>
                         <Route exact path='/' element={
